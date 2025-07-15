@@ -11,7 +11,7 @@ class DaniusInitial extends DaniusState{}
 class DaniusLoading extends DaniusState {}
 
 class DaniusLoaded extends DaniusState {
-  final DaniusModel danius;
+  final List<DaniusModel> danius;
   DaniusLoaded(this.danius);
   @override
   List<Object> get props => [danius];

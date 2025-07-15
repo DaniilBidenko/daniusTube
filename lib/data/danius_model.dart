@@ -7,7 +7,6 @@ class DaniusModel extends Equatable{
  final String publishedAt;
  final String channelId;
  final String description;
- final List<Map<String, dynamic>> items;
 
  DaniusModel({
     required this.videoId,
@@ -16,7 +15,6 @@ class DaniusModel extends Equatable{
     required this.publishedAt,
     required this.channelId,
     required this.description,
-    required this.items
  });
 
  DaniusModel copyWith ({
@@ -26,7 +24,6 @@ class DaniusModel extends Equatable{
     String? publishedAt,
     String? channelId,
     String? description,
-    List<Map<String, dynamic>>? items
  }) {
     return DaniusModel(
         videoId: videoId ?? this.videoId, 
@@ -35,7 +32,6 @@ class DaniusModel extends Equatable{
         publishedAt: publishedAt ?? this.publishedAt,
         channelId: channelId ?? this.channelId,
         description: description ?? this.description,
-        items: items ?? this.items
         );
  }
 
@@ -47,7 +43,6 @@ class DaniusModel extends Equatable{
         publishedAt: json['snippet']['publishedAt'],
         channelId: json['snippet']['channelId'],
         description: json['snippet']['description'],
-        items: json['items']
     );
  }
 
@@ -59,6 +54,5 @@ class DaniusModel extends Equatable{
     publishedAt,
     channelId,
     description,
-    items
  ];
 }

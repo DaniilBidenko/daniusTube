@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
             final danius =  state.danius;
             return Center(
               child: GridView.builder(
-                itemCount: danius.items.length,
+                itemCount: danius,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   ), 
