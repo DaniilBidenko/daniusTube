@@ -30,12 +30,11 @@ class _HomeScreenState extends State<HomeScreen> {
             final danius =  state.danius;
             return Center(
               child: GridView.builder(
-                itemCount: danius,
+                itemCount: danius.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   ), 
                 itemBuilder: (context, index) {
-                  final currency = danius.items.elementAt(index);
                   return Container(
                     width: 50,
                     height: 50,
@@ -45,10 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child: Column(
                       children: [
-                        Image.network(danius.thumbNailsUrl),
-                        Text(danius.title),
-                        Text(danius.description),
-                        Text(danius.publishedAt)
+                        Image.network(danius[index].thumbNailsUrl),
+                        Text(danius[index].title),
+                        Text(danius[index].description),
+                        Text(danius[index].publishedAt)
                       ],
                     ),
                   );

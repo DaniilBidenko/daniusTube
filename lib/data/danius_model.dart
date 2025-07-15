@@ -37,14 +37,20 @@ class DaniusModel extends Equatable{
 
  factory DaniusModel.fromJson(Map<String, dynamic> json) {
     return DaniusModel(
-        videoId: json['snippet']['resourceId']['videoId'], 
-        title: json['snippet']['title'], 
-        thumbNailsUrl: json['snippet']['thumbnails']['medium']['url'],
-        publishedAt: json['snippet']['publishedAt'],
-        channelId: json['snippet']['channelId'],
-        description: json['snippet']['description'],
+        videoId: json['resourceId']['videoId'], 
+        title: json['title'], 
+        thumbNailsUrl: json['thumbnails']['medium']['url'],
+        publishedAt: json['publishedAt'],
+        channelId: json['channelId'],
+        description: json['description'],
     );
  }
+
+  static List<DaniusModel> listFromResponse(Map<String, dynamic> json) {
+    final items = json['items'] as List<dynamic>?;
+    if (items == null) return [];
+    return items.map((item) => DaniusModel.fromJson(item['snippet'] as Map<String, dynamic>)).toList();
+  }
 
  @override
  List<Object> get props => [
