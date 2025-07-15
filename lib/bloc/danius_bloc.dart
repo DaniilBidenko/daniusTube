@@ -6,13 +6,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class DaniusBloc extends Bloc<DaniusEvent, DaniusState>{
   final Daniusrepository repository;
   DaniusBloc({required this.repository}) : super(DaniusInitial()) {
-    on<DaniusLoad> ((event, emit) async {
+    on<DaniusLoad>((event, emit) async {
       print('Загрузка');
       emit(DaniusLoading());
       try {
         print('Загруженно');
-        final danius = await repository.fethTube();
-        emit(DaniusLoaded(danius));
+        final daniusList = await repository.fethTube();
+        emit(DaniusLoaded(daniusList));
       } catch (e) {
         print('Ошибка');
         emit(DaniusError('Ошибка загрузки блока $e'));
